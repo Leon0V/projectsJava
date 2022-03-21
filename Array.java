@@ -6,14 +6,14 @@ public class Array {
 
     public static void main(String[] args) {
 
-        Integer [] RandomValues = new Integer[5];
+        Integer [] RandomValues = new Integer[1000];
         Random random = new Random();
         //o valor acima é para uma array de 1000 elementos, com um fator randomico.
 
         int temp;
         //variavel para alocar valor temporario para comparação na ordenação que será usado na ordenação manual
 
-        System.out.println("\n >>Random Values Sorted inside an array: <<\n");
+        System.out.println("\n >>>Random Values Sorted inside an array: <<<\n");
 
         
         for(int i = 0; i < RandomValues.length; i++){
@@ -21,8 +21,24 @@ public class Array {
             //adicionando valores randomicos ao array
             RandomValues[i] = random.nextInt(10000);
 
+            //comando para nao repetir numeros
+            for(int j = 0; j < i; j++){
+                if(RandomValues[i]==RandomValues[j]){
+                    i--;
+                    break;
+                }
+            }
+
         }
 
+        System.out.println("\n Original Values not sorted in any order: ");
+
+        for(int orValues: RandomValues){
+        System.out.print(" " + orValues);
+        }
+
+        System.out.println("\n");
+      
         //comandos para ordenação automática
         Arrays.sort(RandomValues);
 
